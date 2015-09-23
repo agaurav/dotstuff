@@ -1,104 +1,87 @@
-syntax enable
-set tabstop=4
-set softtabstop=4 
-set expandtab
-set number
-set showcmd
-set cursorline
-filetype indent on 
-set wildmenu
-set lazyredraw
-set showmatch
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-nnoremap <leader><space> :nohlsearch<CR>
-
-set foldmethod=indent                                                                                                                                                                                
- set foldnestmax=10
- set nofoldenable
- set foldlevel=1
- 
  " set the runtime path to include Vundle and initialize
- set rtp+=~/.vim/bundle/Vundle.vim
- call vundle#begin()
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
  
- " let Vundle manage Vundle, required
- Plugin 'gmarik/Vundle.vim'
- Plugin 'kien/ctrlp.vim'
- Plugin 'bling/vim-airline'
- Plugin 'edkolev/promptline.vim'
- Plugin 'Zuckonit/vim-airline-todo'
- Plugin 'altercation/vim-colors-solarized'
- Plugin 'tpope/vim-fugitive'
- Plugin 'scrooloose/nerdtree'
- Plugin 'scrooloose/nerdcommenter'
- Plugin 'easymotion/vim-easymotion'
- Plugin 'ervandew/supertab'
- Plugin 'airblade/vim-gitgutter'
- Plugin 'xolox/vim-misc'
- Plugin 'junegunn/vim-easy-align'
- Plugin 'tpope/vim-surround'
- Plugin 'tpope/vim-sensible'
- Plugin 'christoomey/vim-tmux-navigator'
- Plugin 'sjl/gundo.vim'
- Plugin 'mileszs/ack.vim'
- Plugin 'ciaranm/detectindent'
- Plugin 'tomtom/tcomment_vim'
- Plugin 'scrooloose/syntastic'
- Plugin 'flazz/vim-colorschemes'
- Plugin 'vim-scripts/vim-colorscheme-switcher'
- Plugin 'bufexplorer.zip'
- Plugin 'tomtom/tlib_vim'
- Plugin 'MarcWeber/vim-addon-mw-utils'
- Plugin 'terryma/vim-expand-region'
- Plugin 'terryma/vim-multiple-cursors'
- Plugin 'tpope/vim-repeat'
- Plugin 'mhinz/vim-startify'
- Plugin 'jceb/vim-orgmode'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+ 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/promptline.vim'
+Plugin 'Zuckonit/vim-airline-todo'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ervandew/supertab'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'xolox/vim-misc'
+Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-sensible'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'sjl/gundo.vim'
+Plugin 'mileszs/ack.vim'
+Plugin 'ciaranm/detectindent'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'vim-scripts/vim-colorscheme-switcher'
+Plugin 'bufexplorer.zip'
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'terryma/vim-expand-region'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-repeat'
+Plugin 'mhinz/vim-startify'
+Plugin 'jceb/vim-orgmode'
 " Syntax and lang specific
- Plugin 'elzr/vim-json'
- Plugin 'bash-support.vim'
- Plugin 'stephpy/vim-yaml'
- Plugin 'chase/vim-ansible-yaml'
- Plugin 'Rip-Rip/clang_complete'
- Plugin 'fatih/vim-go'
- Plugin 'jnwhiteh/vim-golang'
- Plugin 'YankRing.vim'
- Plugin 'lilydjwg/colorizer'
- Plugin 'raimondi/delimitmate'
- Plugin 'Yggdroot/indentLine'
- Plugin 'garbas/vim-snipmate'
- Plugin 'honza/vim-snippets'
- Plugin 'SirVer/ultisnips'
- Plugin 'matthewsimo/angular-vim-snippets'
- Plugin 'bonsaiben/bootstrap-snippets'
- Plugin 'xolox/vim-easytags'
- Plugin 'tpope/vim-markdown'
- Plugin 'vimoutliner/vimoutliner'
- " Themes
- Plugin 'tomasr/molokai'
- Plugin 'romainl/Apprentice'
- Plugin 'nanotech/jellybeans.vim'
- Plugin 'altercation/vim-colors-solarized'
- Plugin 'ryanoasis/vim-devicons'
- " YouCompleteMe requires fair bit of compilation so to be done seperately only when required 
- " Plugin 'Valloric/YouCompleteMe'
+Plugin 'elzr/vim-json'
+Plugin 'bash-support.vim'
+Plugin 'stephpy/vim-yaml'
+Plugin 'chase/vim-ansible-yaml'
+Plugin 'Rip-Rip/clang_complete'
+Plugin 'fatih/vim-go'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'YankRing.vim'
+Plugin 'lilydjwg/colorizer'
+Plugin 'raimondi/delimitmate'
+Plugin 'Yggdroot/indentLine'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'SirVer/ultisnips'
+Plugin 'matthewsimo/angular-vim-snippets'
+Plugin 'bonsaiben/bootstrap-snippets'
+Plugin 'xolox/vim-easytags'
+Plugin 'tpope/vim-markdown'
+Plugin 'vimoutliner/vimoutliner'
+" Themes
+Plugin 'tomasr/molokai'
+Plugin 'romainl/Apprentice'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ryanoasis/vim-devicons'
+" YouCompleteMe requires fair bit of compilation so to be done seperately only when required 
+" Plugin 'Valloric/YouCompleteMe'
 
 
- " All of your Plugins must be added before the following line
- call vundle#end()            " required
- filetype plugin indent on    " required
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
  
 
 "Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 
 " include rest of the rc files
-source ~/.vim/vimrcs/basic.vim
-source ~/.vim/vimrcs/filetypes.vim
-source ~/.vim/vimrcs/plugins_config.vim
-source ~/.vim/vimrcs/extended.vim
-source ~/.vim/vimrcs/mappings.vim
-source ~/.vim_runtime/vimrcs/skl.vim
+source ~/.vim/rcs/basic.vim
+source ~/.vim/rcs/filetypes.vim
+source ~/.vim/rcs/plugins_config.vim
+source ~/.vim/rcs/extended.vim
+source ~/.vim/rcs/mappings.vim
+source ~/.vim/rcs/skl.vim
 
 

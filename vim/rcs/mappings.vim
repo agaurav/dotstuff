@@ -25,9 +25,6 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :bufdo bd<cr>
 
 " Useful mappings for managing tabs
-map <leader>to :tabonly<cr>
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
 map <F9> :tabprevious<cr>
 map <F8>  :tabnew<cr><C-f>
 map <F10>  :tabnext<cr>

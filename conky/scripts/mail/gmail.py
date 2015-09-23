@@ -40,7 +40,7 @@ def notificar(mails):
 
 
 mailbox = imaplib.IMAP4_SSL('imap.gmail.com','993')
-mailbox.login("ashish@archsaber.com", "lxb2msn@arch13")
+mailbox.login("ashish@archsaber.com", "blabla")
 mailbox.select()
 
 result, data = mailbox.search(None, 'UnSeen')
