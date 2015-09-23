@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Conky
+GenericName=startconky
+Comment=startconky
+Type=Application
+Exec=/home/luke/.start-conky
+X-GNOME-Autostart-enabled=true
+Terminal=false

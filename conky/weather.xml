@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+		<rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+			<channel>
+		
+<title>Yahoo! Weather - Gurgaon, IN</title>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Gurgaon__IN/*http://weather.yahoo.com/forecast/INXX0342_c.html</link>
+<description>Yahoo! Weather for Gurgaon, IN</description>
+<language>en-us</language>
+<lastBuildDate>Mon, 21 Sep 2015 5:00 pm IST</lastBuildDate>
+<ttl>60</ttl>
+<yweather:location city="Gurgaon" region="HR"   country="India"/>
+<yweather:units temperature="C" distance="km" pressure="mb" speed="km/h"/>
+<yweather:wind chill="35"   direction="80"   speed="4.83" />
+<yweather:atmosphere humidity="47"  visibility="3.49"  pressure="982.05"  rising="0" />
+<yweather:astronomy sunrise="6:10 am"   sunset="6:19 pm"/>
+<image>
+<title>Yahoo! Weather</title>
+<width>142</width>
+<height>18</height>
+<link>http://weather.yahoo.com</link>
+<url>http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif</url>
+</image>
+<item>
+<title>Conditions for Gurgaon, IN at 5:00 pm IST</title>
+<geo:lat>28.47</geo:lat>
+<geo:long>77.04</geo:long>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Gurgaon__IN/*http://weather.yahoo.com/forecast/INXX0342_c.html</link>
+<pubDate>Mon, 21 Sep 2015 5:00 pm IST</pubDate>
+<yweather:condition  text="Haze"  code="21"  temp="35"  date="Mon, 21 Sep 2015 5:00 pm IST" />
+<description><![CDATA[
+<img src="http://l.yimg.com/a/i/us/we/52/21.gif"/><br />
+<b>Current Conditions:</b><br />
+Haze, 35 C<BR />
+<BR /><b>Forecast:</b><BR />
+Mon - Partly Cloudy. High: 32 Low: 26<br />
+Tue - Partly Cloudy. High: 33 Low: 26<br />
+Wed - Mostly Sunny. High: 33 Low: 24<br />
+Thu - Sunny. High: 34 Low: 23<br />
+Fri - Sunny. High: 34 Low: 23<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Gurgaon__IN/*http://weather.yahoo.com/forecast/INXX0342_c.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+(provided by <a href="http://www.weather.com" >The Weather Channel</a>)<br/>
+]]></description>
+<yweather:forecast day="Mon" date="21 Sep 2015" low="26" high="32" text="Partly Cloudy" code="29" />
+<yweather:forecast day="Tue" date="22 Sep 2015" low="26" high="33" text="Partly Cloudy" code="30" />
+<yweather:forecast day="Wed" date="23 Sep 2015" low="24" high="33" text="Mostly Sunny" code="34" />
+<yweather:forecast day="Thu" date="24 Sep 2015" low="23" high="34" text="Sunny" code="32" />
+<yweather:forecast day="Fri" date="25 Sep 2015" low="23" high="34" text="Sunny" code="32" />
+<guid isPermaLink="false">INXX0342_2015_09_25_7_00_IST</guid>
+</item>
+</channel>
+</rss>
+
+<!-- fan1606.sports.bf1.yahoo.com Mon Sep 21 05:30:17 PDT 2015 -->

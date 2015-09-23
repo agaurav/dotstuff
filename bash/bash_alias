@@ -1,0 +1,158 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+#########
+#My Aliases
+#########
+###general###
+alias ll='ls -lhAG'
+alias ls='ls -CFG'
+alias l.='ls -d .*'
+alias lt='ls -At1 && echo "------Oldest--"'
+alias ltr='ls -Art1 && echo "------Newest--"'
+alias path='echo -e ${PATH//:/\\n}'
+alias mkdir='mkdir -pv'
+alias histg='history | grep'
+
+###editor##
+alias vi=vim
+alias svi='sudo vi'
+alias vis='vim "+set si"'
+alias edit='vim'
+
+###git aliases###
+# add and remove new/deleted files from git index automatically
+alias gitar="git ls-files -d -m -o -z --exclude-standard | xargs -0 git update-index --add --remove"
+# git push
+alias gitpd="git push origin dev"
+alias gitpm="git push origin master"
+alias gitacp="git add --all && git commit -m 'minor change'"
+alias gits="git status"
+alias gitd="git diff"
+alias gitr="git remote -vv"
+alias gitc="git checkout"
+alias gitcb="git checkout -b"
+
+# Remove git from a project
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+
+###network###
+alias pubip='curl ip.appspot.com'                    # myip:         Public facing IP Address
+alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
+alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
+alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
+alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
+alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+
+alias ports='netstat -tulanp'
+alias ipt='sudo /sbin/iptables'
+
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+alias firewall=iptlist
+
+alias apt-get='sudo apt-get'
+alias reboot='sudo reboot'
+alias poweroff='sudo poweroff'
+
+###typo anticipations###
+alias sl='ls'
+alias cd..='cd ..'
+
+
+###misc###
+alias lsl="ls -lhFA | less" # alias to pipe our output to less for viewing large directory listings with the long format
+alias ..='cd ..'
+alias fhere='find . -name '
+alias psg='ps aux | grep -v grep | grep -i -e VSZ -e' # make our process table searchable. We can create an alias that searches our process for an argument we'll pass
+alias cpwd='pwd|tr -d "\n"|pbcopy'
+alias cpu='top -o cpu'
+alias mem='top -o rsize' # memory
+
+# platform specific aliases, can be improved for redhat based as well
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+        alias pkginstall='brew install'
+elif [[ "$unamestr" == 'Linux' ]]; then
+        alias pkginstall='sudo apt-get install'
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
+fi
+
+# 
+
+# get file structre in tree format
+alias lst='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--/g'"'"' -e '"'"'s/^/   /'"'"' -e '"'"'s/-/|/'"'"
+
+# usefull functions
+
+mcd () {
+    mkdir -p $1
+    cd $1
+}
+
+
+function extract {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+ else
+    if [ -f $1 ] ; then
+        # NAME=${1%.*}
+        # mkdir $NAME && cd $NAME
+        case $1 in
+          *.tar.bz2)   tar xvjf ../$1    ;;
+          *.tar.gz)    tar xvzf ../$1    ;;
+          *.tar.xz)    tar xvJf ../$1    ;;
+          *.lzma)      unlzma ../$1      ;;
+          *.bz2)       bunzip2 ../$1     ;;
+          *.rar)       unrar x -ad ../$1 ;;
+          *.gz)        gunzip ../$1      ;;
+          *.tar)       tar xvf ../$1     ;;
+          *.tbz2)      tar xvjf ../$1    ;;
+          *.tgz)       tar xvzf ../$1    ;;
+          *.zip)       unzip ../$1       ;;
+          *.Z)         uncompress ../$1  ;;
+          *.7z)        7z x ../$1        ;;
+          *.xz)        unxz ../$1        ;;
+          *.exe)       cabextract ../$1  ;;
+          *)           echo "extract: '$1' - unknown archive method" ;;
+        esac
+    else
+        echo "$1 - file does not exist"
+    fi
+fi
+}
+
+
+
+function myip() {
+     sudo ifconfig lo0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "lo0       : " $2}'
+     sudo ifconfig en0 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en0 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+     sudo ifconfig en0 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en0 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+     sudo ifconfig en1 | grep 'inet ' | sed -e 's/:/ /' | awk '{print "en1 (IPv4): " $2 " " $3 " " $4 " " $5 " " $6}'
+     sudo ifconfig en1 | grep 'inet6 ' | sed -e 's/ / /' | awk '{print "en1 (IPv6): " $2 " " $3 " " $4 " " $5 " " $6}'
+}
+
+function getrand {
+
+  if [ -z "$1" ]; then
+    openssl rand -base64 128
+  else
+    if [ -z "$2" ]; then
+      openssl rand -base64 $1
+    else
+      openssl rand -$2 $1
+    fi
+  fi
+
+}
+
+
