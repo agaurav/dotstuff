@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+def get_mail_password():
+	return 'blaba'
+
+def get_mail_user():
+	return 'ashish@archsaber.com'
+
+def get_user_name():
+	return 'ashish'

@@ -1,5 +1,5 @@
-#!/usr/bin/python
- 
+#!/usr/bin/python2
+
 ################################################################################
 ##3456789 123456789 123456789 123456789 123456789 123456789 123456789 123456789
 ##      10        20        30        40        50        60        70        80
@@ -30,10 +30,10 @@
 ## with this program.  If not, see <http://www.gnu.org/licenses/>.
 ##
 ################################################################################
- 
+
 import sys
 import pynotify
- 
+
 # even in Python this is globally nasty <img src="http://developer.ubuntu.com/wp-includes/images/smilies/icon_smile.gif" alt=":)" class="wp-smiley"> , do something nicer in your own code
 capabilities = {'actions':             False,
         'body':                False,
@@ -47,74 +47,73 @@ capabilities = {'actions':             False,
         'private-synchronous': False,
         'append':              False,
         'private-icon-only':   False}
- 
-def initCaps ():
-    caps = pynotify.get_server_caps ()
+
+def initCaps():
+    caps = pynotify.get_server_caps()
     if caps is None:
-		print "Failed to receive server caps."
-		sys.exit (1)
- 
+        sys.exit(1)
+
     for cap in caps:
         capabilities[cap] = True
- 
-def printCaps ():
-    info = pynotify.get_server_info ()
-    print "Name:          " + info["name"]
-    print "Vendor:        " + info["vendor"]
-    print "Version:       " + info["version"]
-    print "Spec. Version: " + info["spec-version"]
- 
-    caps = pynotify.get_server_caps ()
+
+def printCaps():
+    info = pynotify.get_server_info()
+    print("Name:          " + info["name"])
+    print("Vendor:        " + info["vendor"])
+    print("Version:       " + info["version"])
+    print("Spec. Version: " + info["spec-version"])
+
+    caps = pynotify.get_server_caps()
     if caps is None:
-		print "Failed to receive server caps."
-		sys.exit (1)
- 
-    print "Supported capabilities/hints:"
+                print("Failed to receive server caps.")
+                sys.exit(1)
+
+    print("Supported capabilities/hints:")
     if capabilities['actions']:
-        print "\tactions"
+        print("\tactions")
     if capabilities['body']:
-        print "\tbody"
+        print("\tbody")
     if capabilities['body-hyperlinks']:
-        print "\tbody-hyperlinks"
+        print("\tbody-hyperlinks")
     if capabilities['body-images']:
-        print "\tbody-images"
+        print("\tbody-images")
     if capabilities['body-markup']:
-        print "\tbody-markup"
+        print("\tbody-markup")
     if capabilities['icon-multi']:
-        print "\ticon-multi"
+        print("\ticon-multi")
     if capabilities['icon-static']:
-        print "\ticon-static"
+        print("\ticon-static")
     if capabilities['sound']:
-        print "\tsound"
+        print("\tsound")
     if capabilities['image/svg+xml']:
-        print "\timage/svg+xml"
+        print("\timage/svg+xml")
     if capabilities['private-synchronous']:
-        print "\tprivate-synchronous"
+        print("\tprivate-synchronous")
     if capabilities['append']:
-        print "\tappend"
+        print("\tappend")
     if capabilities['private-icon-only']:
-        print "\tprivate-icon-only"
- 
-    print "Notes:"
+        print("\tprivate-icon-only")
+
+    print("Notes:")
     if info["name"] == "notify-osd":
-        print "\tx- and y-coordinates hints are ignored"
-        print "\texpire-timeout is ignored"
-        print "\tbody-markup is accepted but filtered"
+        print("\tx- and y-coordinates hints are ignored")
+        print("\texpire-timeout is ignored")
+        print("\tbody-markup is accepted but filtered")
     else:
-        print "\tnone"
- 
+        print("\tnone")
+
 if __name__ == '__main__':
-    if not pynotify.init ("icon-summary-body"):
-        sys.exit (1)
- 
+    if not pynotify.init("icon-summary-body"):
+        sys.exit(1)
+
     # call this so we can savely use capabilities dictionary later
-    initCaps ()
- 
+    initCaps()
+
     # show what's supported
     # printCaps ()
- 
+
     # try the icon-summary-body case
-    n = pynotify.Notification (sys.argv[1],sys.argv[2],
+    n = pynotify.Notification(sys.argv[1],sys.argv[2],
                    "notification-message-email")
-    n.show ()
+    n.show()
 

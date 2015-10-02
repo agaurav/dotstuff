@@ -115,10 +115,10 @@ color2 6f6f6f	#(medium grey)
 color2 3c3c3c	#(dark grey)
 color3 fa8967	#(teal / blue)
 color4 982727	#(red)
-color5 7b7a13	#(yellow)
+color5 6b6a13	#(yellow)
 color6 46a646	#(green)
 color7 9c6043	#(orange)
-color8 ffa300	#(bright orange)
+color8 a09311	#(bright orange)
 
 
 ## Lua: load clock rings.
@@ -337,36 +337,36 @@ ${voffset -116}
 ${offset 1274}${font Ubuntu:pixelsize=24}${color}${texeci 900 grep "yweather:wind" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}${texeci 900 grep "yweather:units" ~/.cache/weather.xml | grep -o "speed=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}
 
 ${voffset -80}
-${offset 1468}${font Ubuntu:pixelsize=24}${texeci 900 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
+${offset 1448}${font Ubuntu:pixelsize=24}${texeci 900 grep "yweather:atmosphere" ~/.cache/weather.xml | grep -o "humidity=\"[^\"]*\"" | grep -o "\"[^\"]*\"" | grep -o "[^\"]*"}%
 
 ${image ~/.cache/weather.png -p 1094,16 -s 128x128}
-${image ~/.conky/scripts/weather/wind.png -p 1228,34 -s 32x32}
-${image ~/.conky/scripts/weather/humidity.png -p 1420,34 -s 32x32}
+${image ~/.conky/scripts/weather/wind.png -p 1244,34 -s 32x32}
+${image ~/.conky/scripts/weather/humidity.png -p 1409,34 -s 32x32}
 ###
 
-${voffset 8}${offset 316}${color}${hr 2}
+${voffset 8}${offset 316}${color2}${hr 2}
 
-${offset 304}${voffset -8}${font Ubuntu:pixelsize=27}${color8}HD ${offset 9}${color6}${exec df -h | grep "/dev/sd*"  | awk '{ SUM += $3} END { print SUM "GB" }'} / ${color 4a89a7}${exec df -h | grep "/dev/sd*"  | awk '{ SUM += $2} END { print SUM "GB" }'}${offset 18}${color8}RAM ${offset 9}${color6}$mem / ${color 4a89a7}$memmax${offset 18}${color8}CPU ${offset 9}${color4}${lua_parse pad ${cpu cpu0}}% ${offset 9}${color5}${lua_parse pad ${cpu cpu1}}% ${offset 9}${color4}${lua_parse pad ${cpu cpu2}}% ${offset 9}${color5}${lua_parse pad ${cpu cpu3}}% ${offset 9}${color4}${lua_parse pad ${cpu cpu4}}% ${offset 9}${color5}${lua_parse pad ${cpu cpu5}}% ${offset 9}${color4}${lua_parse pad ${cpu cpu6}}% ${offset 9}${color5}${lua_parse pad ${cpu cpu7}}%
+${offset 332}${voffset -8}${font Ubuntu:pixelsize=27}${color8}HD ${offset 9}${color6}${exec df -h | grep "/dev/sd*"  | awk '{ SUM += $3} END { print SUM "GB" }'} / ${color 4a89a7}${exec df -h | grep "/dev/sd*"  | awk '{ SUM += $2} END { print SUM "GB" }'}${offset 18}${color8}RAM ${offset 9}${color6}$mem / ${color 4a89a7}$memmax${offset 18}${color8}CPU ${offset 9}${color4}${cpu cpu0}% ${offset 9}${color5}${cpu cpu1}% ${offset 9}${color4}${cpu cpu2}% ${offset 9}${color5}${cpu cpu3}% ${offset 9}${color4}${cpu cpu4}% ${offset 9}${color5}${cpu cpu5}% ${offset 9}${color4}${cpu cpu6}% ${offset 9}${color5}${cpu cpu}%
 ##FILE SYSTEM
 #
 ${voffset -74}
-${offset 102}${voffset 236}${font Monospace:size=12}${color 4a89a7}root:${tab 4}${font Santana:size=9}${color}${fs_used /}/${fs_size /}
+${offset 102}${voffset 238}${font Monospace:size=12}${color 4a89a7}root:${tab 4}${font Santana:size=9}${color}${fs_used /}/${fs_size /}
 ${offset 102}${voffset 7}${color6}${font Monospace:size=12}home:${tab 4}${font Santana:size=9}${color}${fs_used /home}/${fs_size /home}
 ${offset 102}${voffset 8}${color4}${font Monospace:size=12}data:${tab 4}${font Santana:size=9}${color}${fs_used /var}/${fs_size /var}
 ${offset 552}${voffset -144}${font Santana:size=18}${color7} Kernel:${color1} ${kernel} 
 ${offset 550}${font Monospace:size=15}${color 4a89a7} Uptime : ${color1}${uptime}
-${offset 1062}${voffset -164}${font Santana:size=16}${color7}${exec whoami}${color2}@${color}${nodename}
+${offset 1062}${voffset -164}${font Santana:size=18}${color7}${exec whoami}${color2}@${color}${nodename}
 ${offset 1062}${font Monospace:size=10}${color6} Top (CPU):${tab 2}${offset 9}${color}${top name 5} ${top cpu 5}
 ${offset 1062}${font Monospace:size=10}${color6} Top (RAM):${tab 2}${offset 9}${color}${top_mem name 5} ${top_mem mem 5}
-${offset 1148}${voffset 48}${color}${font Santana:size=16}${color7} ashish${color2}@${color}archsaber.com
+${offset 1148}${voffset 40}${color}${font Santana:size=18}${color7} ashish${color2}@${color}archsaber.com
 #${offset 830}${font Monospace:size=9}${color5}${texeci 151 ~/a.py}
 ${offset 1156}${font Monospace:size=14}${color5}${texeci 600 ~/.conky/scripts/mail/gmail.py}
-${offset 718}${voffset 52}${color7}${font Santana:size=16}IP Address : ${color}${addr wlp7s0}
+${offset 718}${voffset 52}${color7}${font Santana:size=18}IP Address : ${color}${addr wlp7s0}
 ${offset 718}${font Monospace:size=14}${color4}Down: ${offset 9}${color}${downspeed wlp7s0}/s ${tab 4}${color4}Up:${tab 4}${color}${upspeed wlp7s0} /s
 ${offset 718}${color}${font Monospace:size=14}${color 4a89a7}TCP Connections: ${color}${tcp_portmon 1 65535 count}
 
 # Positioning eset for static text examples below
-${voffset -322}
+${voffset -336}
 # Static text example: Logo
 ${offset 124}${color}${font Ubuntu:pixelsize=44}${color7}ArchShip Beta ${color2}0.1
 # Static text example: Multi-line

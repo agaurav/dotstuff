@@ -10,13 +10,14 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 #ZSH_THEME="bullet-train"
 export TERM="xterm-256color"
 POWERLEVEL9K_SHOW_CHANGESET=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #ZSH_THEME="powerline"
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}' 
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 POWERLEVEL9K_MODE='awesome-patched'
+
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="agnoster"
 fi
@@ -63,13 +64,14 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git command-not-found gpg-agent python git-extras rand-quote redis-cli screen sublime sudo supervisor vagrant web-search wd ssh-agent )
+plugins=(git npm gpg-agent python git-extras rand-quote redis-cli screen sublime sudo supervisor vagrant web-search wd ssh-agent archlinux aws dirpersist encode64 per-directory-history )
 
 
 # User configuration
-export GOROOT="/usr/local/go"
-export GOPATH="/home/luke/go/"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/luke/go/bin"
+#
+export GOROOT="/usr/lib/go/"
+export GOPATH="/home/luke/udata/go/"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games":$GOPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 alias vimgo='vim -u ~/.vimrc.go'

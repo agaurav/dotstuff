@@ -93,6 +93,8 @@ alias lst='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--
 
 # usefull functions
 
+alias pacup='yaourt -Syu --devel --aur'
+
 mcd () {
     mkdir -p $1
     cd $1
@@ -155,4 +157,34 @@ function getrand {
 
 }
 
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
 
+# lists zombie processes
+function zombie() {
+    ps aux | awk '{if ($8=="Z") { print $2 }}'
+}
+
+
+# Go up [n] directories
+function up() {
+    local cdir="$(pwd)"
+    if [[ "${1}" == "" ]]; then
+        cdir="$(dirname "${cdir}")"
+    elif ! [[ "${1}" =~ ^[0-9]+$ ]]; then
+        echo "Error: argument must be a number"
+    elif ! [[ "${1}" -gt "0" ]]; then
+        echo "Error: argument must be positive"
+    else
+        for i in {1..${1}}; do
+            local ncdir="$(dirname "${cdir}")"
+            if [[ "${cdir}" == "${ncdir}" ]]; then
+                break
+            else
+                cdir="${ncdir}"
+            fi
+        done
+    fi
+    cd "${cdir}"
+}

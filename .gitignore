@@ -1,0 +1,13 @@
+.idea
+config.json
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+*/._*
+*/*/._*
+*/*/__*
+*.dat
+*.py[cod]
+*cred.py
+*userpwd.py
+userpwd.py
