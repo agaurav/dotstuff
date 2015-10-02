@@ -1,6 +1,6 @@
 [submodule "zsh/oh-my-zsh"]
     path = zsh/oh-my-zsh 
-    url = git@github.com:agaurav/oh-my-zsh.git 
+    url = https://github.com/agaurav/oh-my-zsh.git 
 [submodule "zsh/oh-my-zsh/themes"]
     path = zsh/oh-my-zsh/themes/powerlevel9k
-    url = git@github.com:agaurav/powerlevel9k.git 
+    url = https://github.com/agaurav/powerlevel9k.git 
