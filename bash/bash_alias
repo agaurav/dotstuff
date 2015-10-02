@@ -93,7 +93,7 @@ alias lst='ls -R | grep ":$" | sed -e '"'"'s/:$//'"'"' -e '"'"'s/[^-][^\/]*\//--
 
 # usefull functions
 
-alias pacup='yaourt -Syu --devel --aur'
+alias pacup='yaourt -Syu --devel --aur --noconfirm'
 
 mcd () {
     mkdir -p $1

@@ -69,8 +69,7 @@ plugins=(git npm gpg-agent python git-extras rand-quote redis-cli screen sublime
 
 # User configuration
 #
-export GOROOT="/usr/lib/go/"
-export GOPATH="/home/luke/udata/go/"
+export GOPATH=$HOME/udata/go/
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games":$GOPATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
