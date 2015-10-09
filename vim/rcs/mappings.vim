@@ -118,9 +118,14 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 map <F2> :NERDTreeToggle<CR>
 map <F3> :TagbarOpenAutoClose<CR>
 map <F4> :YRShow<CR>
-inoremap <F4> <C-o>YRShow<CR>
+map <F5> :VimShellPop<CR>
+inoremap <F2> <C-o>:NERDTreeToggle<CR>
+inoremap <F3> <C-o>:TagbarOpenAutoClose<CR>
+inoremap <F4> <C-o>:YRShow<CR>
+inoremap <F5> <C-o>:VimShellPop<CR>
 
 map <leader>mn :MultipleCursorsFind
+
 let g:multi_cursor_use_default_mapping=0
 let g:multi_cursor_next_key='<C-m>'
 let g:multi_cursor_prev_key='<C-s>'
@@ -129,3 +134,7 @@ let g:multi_cursor_quit_key='<Esc>'
 
 let g:vim_json_syntax_conceal = 0
 let g:SuperTabDefaultCompletionType = "<CR>"
+
+
+
+:nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel

@@ -162,3 +162,23 @@ set statusline+=\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 let g:rehash256 = 1
 "let g:molokai_original = 1
+"
+"
+
+let g:airline_powerline_fonts = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+let g:webdevicons_enable_nerdtree = 1
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ "Unknown"   : "?"
+    \ }
+
+

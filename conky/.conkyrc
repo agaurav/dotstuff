@@ -43,7 +43,7 @@ override_utf8_locale yes
 double_buffer yes
 no_buffers yes
 
-text_buffer_size 4096
+text_buffer_size 8192
 #imlib_cache_size 0
 
 ## 
@@ -119,6 +119,7 @@ color5 6b6a13	#(yellow)
 color6 46a646	#(green)
 color7 9c6043	#(orange)
 color8 a09311	#(bright orange)
+color9 4a89a7
 
 
 ## Lua: load clock rings.
@@ -369,6 +370,36 @@ ${offset 718}${color}${font Monospace:size=14}${color 4a89a7}TCP Connections: ${
 ${voffset -336}
 # Static text example: Logo
 ${offset 124}${color}${font Ubuntu:pixelsize=44}${color7}ArchShip Beta ${color2}0.1
+${voffset 166}
+${font Ubuntu:pixelsize=24}
+${voffset -4}
+${voffset 8}${offset 352}${color}Hostname$color${goto 1000} ${color}Protocol  ${goto 1220} LPort ${goto 1380}Rport$color
+
+${voffset -33}${offset 352}${color2}${hr 4}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 0} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 0} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 0} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 0}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 1} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 1} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 1} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 1}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 2} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 2} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 2} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 2}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 3} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 3} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 3} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 3}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 4} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 4} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 4} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 4}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 5} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 5} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 5} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 5}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 6} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 6} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 6} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 6}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 7} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 7} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 7} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 7}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 8} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 8} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 8} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 8}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 9} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 9} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 9} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 9}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 10} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 10} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 10} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 10}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 11} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 11} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 11} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 11}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 12} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 12} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 12} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 12}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 13} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 13} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 13} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 13}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 14} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 14} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 14} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 14}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 15} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 15} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 15} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 15}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 16} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 16} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 16} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 16}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 17} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 17} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 17} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 17}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 18} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 18} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 18} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 18}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 19} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 19} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 19} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 19}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 20} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 20} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 20} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 20}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 21} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 21} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 21} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 21}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 22} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 22} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 22} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 22}$color
+${color9}${offset 352}${tcp_portmon 1 65535 rhost 23} ${color7}${goto 1000} ${tcp_portmon 1 65535 rservice 23} ${goto 1220} ${color5}${tcp_portmon 1 65535 lport 23} $color4 ${goto 1380}${tcp_portmon 1 65535 rport 23}$color
 # Static text example: Multi-line
 #${offset 120}$font${color 6f6f6f}random text can go here
 #${offset 120}and here...
