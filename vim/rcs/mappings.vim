@@ -25,17 +25,24 @@ map <leader>bd :Bclose<cr>
 map <leader>ba :bufdo bd<cr>
 
 " Useful mappings for managing tabs
-map <F9> :tabprevious<cr>
-map <F8>  :tabnew<cr><C-f>
-map <F10>  :tabnext<cr>
-inoremap <F8>  <C-o>:tabnew<cr>
-inoremap <F9> <C-o>:tabprevious<cr>
+map \[ :tabprevious<cr>
+map \] :tabnext<cr>
+map \' :tabnew<cr><C-f>
+map \f <C-f>
+map \|  :vnew <cr><C-f>
+map <F8>  :vnew <cr><C-f>
+map <F9>  :new <cr><C-f>
+map <F10>  :wincmd f<cr><C-f>
+inoremap <F8>  <C-o>:vnew<cr><C-f>
+inoremap <F9> <C-o>:new<cr><C-f>
 inoremap <F10>  <C-o>:tabnext<cr>
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
 nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
 au TabLeave * let g:lasttab = tabpagenr()
 
+
+map <C-_> gcc
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -50,10 +57,10 @@ vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
 vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
+    nmap <D-j> <M-j>
+    nmap <D-k> <M-k>
+    vmap <D-j> <M-j>
+    vmap <D-k> <M-k>
 endif
 
 
@@ -108,15 +115,15 @@ snor <c-Space> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 "snor <F7> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
 map <leader>nn :NERDTreeToggle<cr>
-map <leader>nb :NERDTreeFromBookmark 
+map <leader>nb :NERDTreeFromBookmark
 map <leader>nf :NERDTreeFind<cr>
 
-nnoremap <silent> <leader>z :Goyo<cr>
+"nnoremap <silent> <leader>z :Goyo<cr>
 
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 map <F2> :NERDTreeToggle<CR>
-map <F3> :TagbarOpenAutoClose<CR>
+map <F3> :TagbarToggle<CR>
 map <F4> :YRShow<CR>
 map <F5> :VimShellPop<CR>
 inoremap <F2> <C-o>:NERDTreeToggle<CR>
@@ -135,6 +142,64 @@ let g:multi_cursor_quit_key='<Esc>'
 let g:vim_json_syntax_conceal = 0
 let g:SuperTabDefaultCompletionType = "<CR>"
 
+" spell correction
+nnoremap \s a<C-X><C-S>
+
+" replace current text with that in buffer & yank it again (for repeat copy paste)
+nnoremap \w viwpyiw
+nnoremap \v :YRShow<CR>
+
+nnoremap \c yaw
 
 
-:nnoremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+"put the current word in quote
+noremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+noremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+noremap <leader>9 viw<esc>a)<esc>hbi(<esc>lel
+noremap <leader>0 viw<esc>a)<esc>hbi(<esc>lel
+noremap <leader>] viw<esc>a]<esc>hbi[<esc>lel
+noremap <leader>[ viw<esc>a}<esc>hbi{<esc>lel
+
+" Show a list of interfaces which is implemented by the type under your cursor
+au FileType go nmap <leader>s <Plug>(go-implements)
+
+" Show type info for the word under your cursor
+au FileType go nmap <leader>i <Plug>(go-info)
+
+au FileType go nmap \d <Plug>(go-def)
+" Open the relevant Godoc for the word under the cursor
+au FileType go nmap <leader>gd <Plug>(go-doc)
+au FileType go nmap <leader>gv <Plug>(go-doc-vertical)
+
+" Open the Godoc in browser
+au FileType go nmap <leader>gb <Plug>(go-doc-browser)
+
+" Run/build/test/coverage
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+
+let g:switch_mapping = "-"
+
+cmap w!! w !sudo tee > /dev/null %
+
+nmap K <Plug>(devdocs-under-cursor)
+
+autocmd FileType typescript nmap \r <C-^>
+
+autocmd FileType typescript nmap <buffer> \t : <C-u>echo tsuquyomi#hint()<CR>
+
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+
+nmap <silent> \l <Plug>(jsdoc)
+" nmap <Space> <Plug>(easymotion-bd-f)
+nmap <Space> <Plug>(easymotion-sn)
+
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+map \<Space> :noh<CR>

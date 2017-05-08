@@ -1,2 +1,40 @@
 q - macro_name - macro - q : n num_of_times - @ -macro_name : record and apply a macro n number of times
 
+:%Subvert/facilit{y,ies}/building{,s}/g
+
+F8 - vertical pane
+alt-arrow - navigate paneas
+ctrl/ - toggle comment
+
+
+"Typescript"
+ctrl-] : go to def
+ctrl-t : go back
+\t : typ def hints
+\r : references list
+
+
+
+map \[ :tabprevious<cr>
+map \] :tabnext<cr>
+map \' :tabnew<cr><C-f>
+map \f <C-f>
+
+
+map <leader>cd :cd %:p:h<cr>:pwd<cr>  : switch to the directory of open buffer
+
+nnoremap \s a<C-X><C-S>
+
+"replace current text with that in buffer & yank it again (for repeat copy paste)
+nnoremap \w viwpyiw
+
+"put the current word in quote
+noremap <leader>" viw<esc>a"<esc>hbi"<esc>lel
+noremap <leader>' viw<esc>a'<esc>hbi'<esc>lel
+
+cs'" change ' to "
+cs"' change " to '
+
+crs (to snake case) : fooBar =>  foo_var
+
+crm (to mixed case) : foo_bar =>  FooBar

@@ -1,21 +1,23 @@
- " set the runtime path to include Vundle and initialize
+" set the runtime path to include Vundle and initialize
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
- 
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
- 
+
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-speeddating'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/promptline.vim'
-Plugin 'Zuckonit/vim-airline-todo'
+"Plugin 'Zuckonit/vim-airline-todo'
 Plugin 'tpope/vim-fugitive'
+Plugin 'christoomey/vim-conflicted'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
 Plugin 'airblade/vim-gitgutter'
@@ -23,31 +25,39 @@ Plugin 'xolox/vim-misc'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-sensible'
-Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'sjl/gundo.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'ciaranm/detectindent'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'Shougo/unite.vim'
+Plugin 'tpope/vim-commentary'
+" Plugin 'zef/vim-cycle'
+Plugin 'dkprice/vim-easygrep'
 "Plugin 'vim-scripts/vim-colorscheme-switcher'
 Plugin 'bufexplorer.zip'
 Plugin 'tomtom/tlib_vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'terryma/vim-expand-region'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-repeat'
 Plugin 'mhinz/vim-startify'
-Plugin 'jceb/vim-orgmode'
+Plugin 'nathanaelkane/vim-indent-guides'
+"Plugin 'jceb/vim-orgmode'
+Plugin 'pbrisbin/vim-mkdir'
 Plugin 'mru.vim'
 Plugin 'junegunn/fzf'
 Plugin 'Shougo/vimshell.vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch-fuzzy.vim'
+Plugin 'haya14busa/incsearch-easymotion.vim'
 " Syntax and lang specific
+Plugin 'davidhalter/jedi-vim'
+Plugin 'andrewradev/switch.vim'
 Plugin 'elzr/vim-json'
 Plugin 'bash-support.vim'
 Plugin 'stephpy/vim-yaml'
 Plugin 'chase/vim-ansible-yaml'
-Plugin 'Rip-Rip/clang_complete'
 Plugin 'fatih/vim-go'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'YankRing.vim'
@@ -57,26 +67,44 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'SirVer/ultisnips'
-Plugin 'matthewsimo/angular-vim-snippets'
-Plugin 'bonsaiben/bootstrap-snippets'
 Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-markdown'
 Plugin 'vimoutliner/vimoutliner'
 Plugin 'Shougo/vimproc.vim'
-" Themes
+Plugin 'godlygeek/tabular'
+"Themes
+Plugin 'tyrannicaltoucan/vim-quantum'
 Plugin 'tomasr/molokai'
-Plugin 'romainl/Apprentice'
+Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'goatslacker/mango.vim'
+"Plugin 'romainl/Apprentice'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'nanotech/jellybeans.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ryanoasis/vim-devicons'
-" YouCompleteMe requires fair bit of compilation so to be done seperately only when required 
+Plugin 'Quramy/tsuquyomi'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'jason0x43/vim-js-indent'
+Plugin 'HerringtonDarkholme/yats.vim'
+" YouCompleteMe requires fair bit of compilation so to be done seperately only when required
 Plugin 'Valloric/YouCompleteMe'
-
-
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'ianks/vim-tsx'
+Plugin 'palantir/tslint'
+Plugin 'w0rp/ale'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'heavenshell/vim-jsdoc'
+Plugin 'yssl/QFEnter'
+Plugin 'Shougo/unite-outline'
+Plugin 'junegunn/seoul256.vim'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
- 
+
 
 "Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
@@ -90,3 +118,9 @@ source ~/.vim/rcs/mappings.vim
 source ~/.vim/rcs/skl.vim
 
 
+:set completeopt=longest,menu,preview
+
+hi Normal guibg=NONE ctermbg=NONE
+" :autocmd VimResized * wincmd =
+"
+au BufRead,BufNewFile *.scss set filetype=scss.css

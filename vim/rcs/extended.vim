@@ -1,5 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Important: 
+" Important:
 "       This requries that you install https://github.com/amix/vimrc !
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -10,7 +10,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set font according to system
 if has("mac") || has("macunix")
-    set gfn=Source\ Code\ Pro:h15,Menlo:h15
+    set gfn=SourceCodePro\+Powerline\+Awesome\Regular:h15,Menlo:h15
+    "set gfn=Monospace\ 11
 elseif has("win16") || has("win32")
     set gfn=Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
 elseif has("linux")
@@ -32,16 +33,21 @@ set guioptions-=l
 set guioptions-=L
 
 " Colorscheme
-if has("gui_running")
-    set background=dark
-    colorscheme peaksea
-else
-    "colorscheme jellybean
-    "let g:colors_name=jellybeans"
-    
-    colorscheme apprentice
-    let g:colors_name="apprentice"
-endif
+let g:seoul256_background = 233
+" colo seoul256
+" let g:colors_name="seoul256"
+
+set t_Co=256
+set background=dark
+
+colo PaperColor
+let g:colors_name="PaperColor"
+
+let g:PaperColor_Dark_Override = { 'background' : '#0b0b08','foreground': '#bbbbcc' }
+"let g:PaperColor_Light_Override = { 'background' : '#abcdef'}
+"let g:PaperColor_Theme_Options = {
+"  \   'transparent_background': 1
+"  \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -52,7 +58,7 @@ autocmd! bufwritepost vimrc source ~/.vim_runtime/my_configs.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on 
+" => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
@@ -72,13 +78,13 @@ cno $j e ./
 cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " $q is super useful when browsing on the command line
-" it deletes everything until the last slash 
+" it deletes everything until the last slash
 cno $q <C-\>eDeleteTillSlash()<cr>
 
 " Bash like keys for the command line
-cnoremap <C-A>		<Home>
-cnoremap <C-E>		<End>
-cnoremap <C-K>		<C-U>
+cnoremap <C-A>      <Home>
+cnoremap <C-E>      <End>
+cnoremap <C-K>      <C-U>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
@@ -141,7 +147,7 @@ func! DeleteTillSlash()
         else
             let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
         endif
-    endif   
+    endif
 
     return g:cmd_edited
 endfunc
@@ -151,4 +157,26 @@ func! CurrentFileDir(cmd)
 endfunc
 
 
-let g:go_fmt_fail_silently = 0 
+let g:go_fmt_fail_silently = 0
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+
+set number relativenumber
+
+" setglobal relativenumber
+autocmd WinEnter * :setlocal number relativenumber
+autocmd WinLeave,FocusLost * :setlocal number norelativenumber
+" autocmd InsertEnter * :setlocal number norelativenumber
+" autocmd InsertLeave * :setlocal number relativenumber
+
+function! g:ToggleNuMode()
+    if(&relativenumber == 1)
+        set number norelativenumber
+    else
+        set number relativenumber
+    endif
+endfunc
+
+map <C-W> :call g:ToggleNuMode()<CR>
