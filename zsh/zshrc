@@ -1,3 +1,4 @@
+export VISUAL="vim"
 source /home/luke/.bash_alias
 # Path to your oh-my-zsh installation.
 export ZSH=/home/luke/.oh-my-zsh
@@ -6,17 +7,37 @@ zstyle :omz:plugins:ssh-agent agent-forwarding on
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
 #ZSH_THEME="bullet-train"
 export TERM="xterm-256color"
 POWERLEVEL9K_SHOW_CHANGESET=true
 #POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 #ZSH_THEME="powerline"
+#ZSH_THEME="punctual"
 #ZSH_THEME="agnoster"
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}' 
+
+BULLETTRAIN_PROMPT_ORDER=(
+dir
+virtualenv
+git
+cmd_exec_time
+status
+)
+
+BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+BULLETTRAIN_PROMPT_ADD_NEWLINE=false
+BULLETTRAIN_STATUS_EXIT_SHOW=true
+BULLETTRAIN_GIT_BG=black
+BULLETTRAIN_GIT_FG=magenta
+
+
+POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
 BULLETTRAIN_STATUS_EXIT_SHOW=true
 POWERLEVEL9K_MODE='awesome-patched'
+
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(background_jobs load ram)
 
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     ZSH_THEME="agnoster"
@@ -64,13 +85,13 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git npm gpg-agent python git-extras rand-quote redis-cli screen sublime sudo supervisor vagrant web-search wd ssh-agent archlinux aws dirpersist encode64 per-directory-history )
+plugins=(tmux git npm python git-extras screen sudo wd ssh-agent archlinux encode64 per-directory-history yarn web-search)
 
 
 # User configuration
 #
-export GOPATH=$HOME/udata/go/
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games":$GOPATH
+export GOPATH=$HOME/go/
+export PATH=$PATH:"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games":$GOPATH/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 alias vimgo='vim -u ~/.vimrc.go'
@@ -104,3 +125,12 @@ eval "$(direnv hook zsh)"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload bashcompinit
+bashcompinit
+
+export PATH="$HOME/.yarn/bin:$HOME/.node/bin:$PATH"
+
+stty -ixon
