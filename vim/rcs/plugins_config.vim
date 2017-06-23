@@ -5,7 +5,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-set dictionary+=~/.vim/bundle/bootstrap-snippets/dictionary
+set dictionary+=~/.vim/plugged/bootstrap-snippets/dictionary
 set complete+=k
 
 
@@ -84,7 +84,7 @@ au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => vim-airline config (force color)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_theme="base16_grayscale"
+let g:airline_theme="base16_eighties"
 let g:airline_powerline_fonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vimroom
@@ -119,8 +119,8 @@ let g:gitgutter_override_sign_column_highlight = 0
 
 set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%{ALEGetStatusLine()}
-" set statusline+=%*
+set statusline+=%{ALEGetStatusLine()}
+set statusline+=%*
 
 
 
@@ -310,3 +310,27 @@ endfunction
 
 noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
+let g:workspace_powerline_separators = 1
+let g:workspace_tab_icon = "\uf00a"
+let g:workspace_left_trunc_icon = "\uf0a8"
+let g:workspace_right_trunc_icon = "\uf0a9"
+
+set guifont=Knack\ Regular\ Nerd\ Font\ Complete\ Mono:h14
+
+
+let g:splitjoin_align = 1
+let g:splitjoin_trailing_comma = 1
+let g:splitjoin_html_attributes_bracket_on_new_line = 1
+
+let g:go_updatetime = 800
+let g:go_auto_type_info = 1
+let g:go_info_mode = 'guru'
+let g:go_auto_sameids = 1
+let g:go_metalinter_autosave = 1
+let g:go_list_height = 10
+let g:go_addtags_transform = 'camelcase'
+let g:go_def_reuse_buffer = 1
+
+" let g:autoformat_autoindent=0
+" let g:autoformat_retab=0
+" autocmd Filetype typescript setlocal autoformat_autoindent=1 autoformat_retab=1

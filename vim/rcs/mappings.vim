@@ -203,3 +203,14 @@ nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 map \<Space> :noh<CR>
+
+noremap <Tab> :WSNext<CR>
+noremap <S-Tab> :WSPrev<CR>
+noremap <Leader><Tab> :WSClose<CR>
+noremap <Leader><S-Tab> :WSClose!<CR>
+noremap <C-t> :WSTabNew<CR>
+
+cabbrev bonly WSBufOnly
+
+au FileType go nmap dv <Plug>(go-def-vertical)
+au FileType go nmap ds <Plug>(go-def-stack)
